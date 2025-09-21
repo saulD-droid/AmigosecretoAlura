@@ -26,8 +26,16 @@ function sortearAmigo() {
         return;
     }
 
+    if (amigos.length === 1) {
+    alert("Necesitas al menos dos amigos para realizar un sorteo.");
+    return;
+  }
+
     let indiceAl = Math.floor(Math.random() * amigos.length);
     let amigoSeleccionado = amigos[indiceAl];
+
+    amigos.splice(indiceAl, 1);
+
     let resultadoElement = document.getElementById("resultado");
   resultadoElement.innerHTML = `¡El amigo sorteado es: ${amigoSeleccionado}`;
     
