@@ -14,7 +14,7 @@ function agregarAmigo() {
 
   amigos.push(amigo);
   inputAmigo.value = "";
-  
+  mostrarAmigo();
 
  }
 
@@ -39,19 +39,23 @@ function sortearAmigo() {
     let resultadoElement = document.getElementById("resultado");
   resultadoElement.innerHTML = `¡El amigo sorteado es: ${amigoSeleccionado}`;
     
+   mostrarAmigo();
+
     }
 
 function mostrarAmigo() {
   
   let lista = document.getElementById("listaAmigos");
-  
-  lista.innerHTML = "";
-  
+  lista.innerHTML = ""; 
+  if (amigos.length === 0) {
+    let li = document.createElement("li");
+    lista.appendChild(li);
+    return;
+  }
+
   for (let i = 0; i < amigos.length; i++) {
-  
     let li = document.createElement("li");
     li.textContent = amigos[i];
-    
     lista.appendChild(li);
   }
 }
